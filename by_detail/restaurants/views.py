@@ -10,7 +10,7 @@ def index(request):
     context = {
         'restaurants': restaurants,
     }
-    return render(request, "restaurants/restaurants_list.html", context)
+    return render(request, "restaurants/index.html", context)
 
 def detail(request, pk):
     detail = Restaurant.objects.get(pk=pk)
