@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href=" {% static 'style.css' %}"
+{% endblock style %}
+    <link rel="stylesheet" href=" {% static 'style.css' %}"
+
+{% block content %}
+    <img src=" {% static 'restaurants/sample_index.png' %} " alt="sample image" style="width:300px;">
+    <h1> 부울경 2반 맛집 </h1>
+
+    {% if  restaurants %}
+    <ul>
+        {% for restaurant  in restaurants  %}
+            <li> <a href="{% url 'restaurants:detail' restaurant.pk %} ">{{ restaurant.name }}</a> </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endblock content %}

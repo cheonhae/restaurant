@@ -3,14 +3,20 @@
 
 {% block content %}
 <h1> 부울경 2반 맛집 </h1>
-{% if detail %}
-    <h2> [{{detail.name}}] </h2>
+{% if restaurant %}
+    <h2> [{{restaurant.name}}] </h2>
+    {% if restaurant.image  %}
+    <img src="{{ restaurant.image.url }}" alt="restaurant.image" style="width:300px;">
+    {% endif %}
+    
     <ul>
-        <li> 주소 : {{detail.region}} </li>
-        <li> 별점 : {{detail.stars}} </li>
-        <li> 대표메뉴 : {{detail.bestMenu}} </li>
-        <li> 추천이유 : {{detail.reason}} </li>
+        <li> 주소 : {{restaurant.region}} </li>
+        <li> 별점 : {{restaurant.stars}} </li>
+        <li> 대표메뉴 : {{restaurant.bestMenu}} </li>
+        <li> 추천이유 : {{restaurant.reason}} </li>
     </ul>
+
+    <a href=" {% url 'restaurants:update' restaurant.pk %}">수정하기</a>
 {% else %}
     "맛집 상세 정보가 없습니다."
 {% endif %}  

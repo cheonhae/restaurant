@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block style %}
     <link rel="stylesheet" href=" {% static 'style.css' %}"
 {% endblock style %}
-    <link rel="stylesheet" href=" {% static 'style.css' %}"
+   
 
 {% block content %}
     <img src=" {% static 'restaurants/sample_index.png' %} " alt="sample image" style="width:300px;">
+    <img src=" {% static 'sample_index2.jpeg' %} " alt="" style='width:300px;'>
     <h1> 부울경 2반 맛집 </h1>
 
     {% if  restaurants %}
@@ -15,5 +17,9 @@
             <li> <a href="{% url 'restaurants:detail' restaurant.pk %} ">{{ restaurant.name }}</a> </li>
         {% endfor %}
     </ul>
+    {% else %}
+        "소개할 맛집이 없습니다."
     {% endif %}
+
+    <a href=" {% url 'restaurants:create' %} ">맛집 추천하기</a>
 {% endblock content %}

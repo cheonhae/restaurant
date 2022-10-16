@@ -8,6 +8,7 @@ class Restaurant(models.Model):
     stars = models.IntegerField()
     bestMenu = models.CharField(max_length=200)
     reason = models.CharField(max_length=1000)
+    image = models.ImageField(blank=True, upload_to='images/%Y/%M/%d' )
     
     def __str__(self):
         return self.name

@@ -3,6 +3,9 @@
 <h1> 부울경 2반 맛집 </h1>
 {% if detail %}
     <h2> [{{detail.name}}] </h2>
+    {% if detail.image %}
+        <img src="{{detail.image.url}} " alt="" style='width:300px;'>
+    {% endif %}
     <ul>
         <li> 주소 : {{detail.region}} </li>
         <li> 별점 : {{detail.stars}} </li>
